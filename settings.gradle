@@ -1,0 +1,3 @@
+rootProject.name = 'dream-javacord-template'
+
+include 'bot-core'
