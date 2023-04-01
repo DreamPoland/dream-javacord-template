@@ -1,8 +1,8 @@
 dependencies {
     // -- dream-platform --
-    implementation "cc.dreamcode.platform:core:1.7-beta3"
-    implementation "cc.dreamcode.platform:javacord:1.7-beta3"
-    implementation "cc.dreamcode.platform:persistence:1.7-beta3"
+    implementation "cc.dreamcode.platform:core:1.7.1"
+    implementation "cc.dreamcode.platform:javacord:1.7.1"
+    implementation "cc.dreamcode.platform:persistence:1.7.1"
 
     // -- javacord --
     implementation 'org.javacord:javacord:3.8.0'
@@ -27,6 +27,9 @@ dependencies {
     implementation 'eu.okaeri:okaeri-configs-json-gson:4.0.9'
     implementation 'eu.okaeri:okaeri-configs-json-simple:4.0.9'
 
+    // -- placeholders --
+    implementation 'eu.okaeri:okaeri-placeholders-core:4.0.7'
+
     // -- injector --
     implementation 'eu.okaeri:okaeri-injector:2.1.0'
 
@@ -35,7 +38,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveFileName = "Dream-Bot-${project.version}.jar"
+    archiveFileName = "Dream-Bot.jar"
 
     manifest {
         attributes 'Main-Class': 'cc.dreamcode.template.TemplateBot'
