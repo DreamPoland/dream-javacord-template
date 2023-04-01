@@ -1,5 +1,3 @@
->><b>Project creation IN DEVELOPING PROCESS...</b>
-
 Working with template:
 -----
 Clone this repo to your account, rename package name, then by pressing ``CTRL + SHIFT + R`` change all variables to your bot name. (Template --> PluginName).
