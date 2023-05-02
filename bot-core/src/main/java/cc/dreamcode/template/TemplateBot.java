@@ -2,13 +2,16 @@ package cc.dreamcode.template;
 
 import cc.dreamcode.platform.DreamVersion;
 import cc.dreamcode.platform.component.ComponentManager;
+import cc.dreamcode.platform.javacord.DreamJavacordConfig;
 import cc.dreamcode.platform.javacord.DreamJavacordPlatform;
+import cc.dreamcode.platform.javacord.component.ConfigurationComponentResolver;
 import cc.dreamcode.platform.javacord.exception.JavacordPlatformException;
 import cc.dreamcode.platform.javacord.serdes.SerdesJavacord;
-import cc.dreamcode.platform.persistence.resolver.DocumentPersistenceComponentResolver;
-import cc.dreamcode.platform.persistence.resolver.DocumentRepositoryComponentResolver;
-import cc.dreamcode.template.command.ReloadCommand;
+import cc.dreamcode.platform.persistence.DreamPersistence;
+import cc.dreamcode.platform.persistence.component.DocumentPersistenceComponentResolver;
+import cc.dreamcode.platform.persistence.component.DocumentRepositoryComponentResolver;
 import cc.dreamcode.template.command.ExampleCommand;
+import cc.dreamcode.template.command.ReloadCommand;
 import cc.dreamcode.template.config.BotConfig;
 import cc.dreamcode.template.config.MessageConfig;
 import cc.dreamcode.template.config.TokenConfig;
@@ -23,7 +26,7 @@ import org.javacord.api.entity.intent.Intent;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-public class TemplateBot extends DreamJavacordPlatform {
+public class TemplateBot extends DreamJavacordPlatform implements DreamPersistence, DreamJavacordConfig {
 
     /**
      * Basic run main method.
@@ -34,6 +37,8 @@ public class TemplateBot extends DreamJavacordPlatform {
 
     @Override
     public @NonNull DiscordApi login(@NonNull ComponentManager componentManager) {
+        componentManager.registerResolver(ConfigurationComponentResolver.class);
+
         final AtomicReference<String> token = new AtomicReference<>();
 
         componentManager.registerComponent(TokenConfig.class, tokenConfig ->
@@ -81,14 +86,14 @@ public class TemplateBot extends DreamJavacordPlatform {
     }
 
     @Override
-    public @NonNull OkaeriSerdesPack getConfigurationSerdesPack() {
+    public OkaeriSerdesPack getConfigSerdesPack() {
         return registry -> {
             registry.register(new SerdesJavacord());
         };
     }
 
     @Override
-    public @NonNull OkaeriSerdesPack getPersistenceSerdesPack() {
+    public OkaeriSerdesPack getPersistenceSerdesPack() {
         return registry -> {
             registry.register(new SerdesJavacord());
         };

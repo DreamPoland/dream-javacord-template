@@ -9,12 +9,13 @@ dependencies {
     implementation "org.slf4j:slf4j-api:2.0.6"
 
     // -- dream-platform --
-    implementation "cc.dreamcode.platform:core:1.8.4"
-    implementation "cc.dreamcode.platform:javacord:1.8.4"
-    implementation "cc.dreamcode.platform:persistence:1.8.4"
+    implementation "cc.dreamcode.platform:core:1.9-pre3"
+    implementation "cc.dreamcode.platform:javacord:1.9-pre3"
+    implementation "cc.dreamcode.platform:javacord-config:1.9-pre3"
+    implementation "cc.dreamcode.platform:persistence:1.9-pre3"
 
     // -- dream-utilities --
-    implementation "cc.dreamcode:utilities:1.2.11"
+    implementation "cc.dreamcode:utilities:1.2.12"
 
     // -- configs--
     implementation 'eu.okaeri:okaeri-configs-yaml-snakeyaml:4.0.9'

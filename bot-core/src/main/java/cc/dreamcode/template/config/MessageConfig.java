@@ -1,9 +1,9 @@
 package cc.dreamcode.template.config;
 
 import cc.dreamcode.platform.javacord.component.configuration.Configuration;
-import cc.dreamcode.platform.javacord.serdes.embed.WrappedEmbedBuilder;
-import cc.dreamcode.platform.javacord.serdes.notice.Notice;
-import cc.dreamcode.platform.javacord.serdes.notice.NoticeType;
+import cc.dreamcode.platform.javacord.embed.WrappedEmbedBuilder;
+import cc.dreamcode.platform.javacord.notice.Notice;
+import cc.dreamcode.platform.javacord.notice.NoticeType;
 import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.Comment;
 import eu.okaeri.configs.annotation.Header;
