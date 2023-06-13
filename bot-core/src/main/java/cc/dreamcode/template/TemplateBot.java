@@ -60,6 +60,8 @@ public class TemplateBot extends DreamJavacordPlatform implements DreamPersisten
     public void enable(@NonNull ComponentManager componentManager) {
         componentManager.registerComponent(MessageConfig.class);
         componentManager.registerComponent(BotConfig.class, botConfig -> {
+            componentManager.setDebug(botConfig.debug);
+
             // register persistence + repositories
             this.registerInjectable(botConfig.storageConfig);
 
@@ -86,14 +88,14 @@ public class TemplateBot extends DreamJavacordPlatform implements DreamPersisten
     }
 
     @Override
-    public OkaeriSerdesPack getConfigSerdesPack() {
+    public @NonNull OkaeriSerdesPack getConfigSerdesPack() {
         return registry -> {
             registry.register(new SerdesJavacord());
         };
     }
 
     @Override
-    public OkaeriSerdesPack getPersistenceSerdesPack() {
+    public @NonNull OkaeriSerdesPack getPersistenceSerdesPack() {
         return registry -> {
             registry.register(new SerdesJavacord());
         };
