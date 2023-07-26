@@ -8,7 +8,6 @@ import cc.dreamcode.utilities.builder.MapBuilder;
 import eu.okaeri.configs.exception.OkaeriException;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.NonNull;
-import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.message.MessageFlag;
 import org.javacord.api.entity.permission.PermissionType;
 import org.javacord.api.interaction.SlashCommandInteraction;
@@ -17,12 +16,15 @@ import org.javacord.api.listener.interaction.SlashCommandCreateListener;
 
 public class ReloadCommand extends JavacordCommand {
 
-    private @Inject DiscordApi discordApi;
-    private @Inject BotConfig botConfig;
-    private @Inject MessageConfig messageConfig;
+    private final BotConfig botConfig;
+    private final MessageConfig messageConfig;
 
-    public ReloadCommand() {
+    @Inject
+    public ReloadCommand(final BotConfig botConfig, final MessageConfig messageConfig) {
         super("reload", "Reload configuration!");
+
+        this.botConfig = botConfig;
+        this.messageConfig = messageConfig;
 
         this.getSlashCommandBuilder().setDefaultEnabledForPermissions(PermissionType.ADMINISTRATOR);
     }

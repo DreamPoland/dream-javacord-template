@@ -3,13 +3,15 @@ package cc.dreamcode.template.listener;
 import cc.dreamcode.template.member.MemberRepository;
 import cc.dreamcode.utilities.optional.CustomOptional;
 import eu.okaeri.injector.annotation.Inject;
+import lombok.RequiredArgsConstructor;
 import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
+@RequiredArgsConstructor(onConstructor_ = @Inject)
 public class ExampleListener implements MessageCreateListener {
 
-    private @Inject MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     /**
      * This method is called every time a message is created.

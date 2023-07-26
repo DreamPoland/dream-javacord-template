@@ -12,10 +12,13 @@ import org.javacord.api.listener.interaction.SlashCommandCreateListener;
 
 public class ExampleCommand extends JavacordCommand {
 
-    private @Inject MessageConfig messageConfig;
+    private final MessageConfig messageConfig;
 
-    public ExampleCommand() {
+    @Inject
+    public ExampleCommand(final MessageConfig messageConfig) {
         super("ping", "Ping pong!");
+
+        this.messageConfig = messageConfig;
     }
 
     @Override

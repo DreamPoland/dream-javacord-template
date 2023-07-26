@@ -9,7 +9,7 @@ Build to jar by ``shadowJar`` gradle task.
 
 **Required:**
 -----
-- Java 8+. (template works on java 8)
+- Java SDK. (java 11+, target 8)
 
 ------
 

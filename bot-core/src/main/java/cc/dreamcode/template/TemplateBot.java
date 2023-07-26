@@ -90,7 +90,7 @@ public class TemplateBot extends DreamJavacordPlatform implements DreamPersisten
     @Override
     public @NonNull OkaeriSerdesPack getConfigSerdesPack() {
         return registry -> {
-            registry.register(new SerdesJavacord());
+
         };
     }
 
