@@ -15,7 +15,7 @@ dependencies {
     implementation "cc.dreamcode.platform:persistence:1.9.4"
 
     // -- dream-utilities --
-    implementation "cc.dreamcode:utilities:1.2.15"
+    implementation "cc.dreamcode:utilities:1.2.17"
 
     // -- configs--
     implementation 'eu.okaeri:okaeri-configs-yaml-snakeyaml:5.0.0-beta.5'
